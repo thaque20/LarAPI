@@ -15,14 +15,18 @@ class CreateDataLogsTable extends Migration
     {
         Schema::create('data_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('plant_id')->default(1);
-            $table->integer('light');
-            $table->float('temperature');
-            $table->float('humidity');
-            $table->string('soil');
-            $table->integer('moisture');
+
+            $table->integer('light')->nullable();
+            $table->float('temperature')->nullable();
+            $table->float('humidity')->nullable();
+            $table->string('soil')->nullable();
+            $table->integer('moisture')->nullable();
             $table->text('remarks')->nullable();
+            $table->boolean('alive')->default(true);
             $table->timestamps();
+
+            $table->bigInteger('plant_id')->unsigned()->index()->nullable();
+            $table->foreign('plant_id')->references('id')->on('plants');
         });
     }
 

@@ -14,7 +14,7 @@ class DataLogController extends Controller
      */
     public function index()
     {
-        //
+        return  DataLog::all();
     }
 
     /**
@@ -35,7 +35,16 @@ class DataLogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datalog = new DataLog();
+        $datalog->light = $request->light;
+        $datalog->temperature = $request->temperature;
+        $datalog->humidity = $request->humidity;
+        $datalog->soil = $request->soil;
+        $datalog->moisture = $request->moisture;
+        $datalog->remarks = $request->remarks;
+        $datalog->alive = $request->alive;
+        $datalog->save();
+        return response()->json(['msg' => 'Created', 'request' => response()->json($request), 'response'=> 201]);
     }
 
     /**
@@ -44,9 +53,9 @@ class DataLogController extends Controller
      * @param  \App\DataLog  $dataLog
      * @return \Illuminate\Http\Response
      */
-    public function show(DataLog $dataLog)
+    public function show($id)
     {
-        //
+        return  DataLog::find($id);
     }
 
     /**
@@ -55,9 +64,9 @@ class DataLogController extends Controller
      * @param  \App\DataLog  $dataLog
      * @return \Illuminate\Http\Response
      */
-    public function edit(DataLog $dataLog)
+    public function edit($id)
     {
-        //
+        return $id;
     }
 
     /**
@@ -67,9 +76,9 @@ class DataLogController extends Controller
      * @param  \App\DataLog  $dataLog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DataLog $dataLog)
+    public function update(Request $request, $id)
     {
-        //
+        return $id;
     }
 
     /**
@@ -78,8 +87,9 @@ class DataLogController extends Controller
      * @param  \App\DataLog  $dataLog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DataLog $dataLog)
+    public function destroy($id)
     {
-        //
+        DataLog::find($id)->delete();
+        return;
     }
 }
