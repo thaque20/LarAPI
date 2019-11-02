@@ -37,12 +37,21 @@ class DataLogController extends Controller
     {
         $datalog = new DataLog();
         $datalog->light = $request->light;
-        $datalog->temperature = $request->temperature;
-        $datalog->humidity = $request->humidity;
+        if($request->temperature > 5){
+            $datalog->temperature = $request->temperature;
+        }
+        if($request->humidity > 10){
+            $datalog->humidity = $request->humidity;
+        }
         $datalog->soil = $request->soil;
         $datalog->moisture = $request->moisture;
         $datalog->remarks = $request->remarks;
         $datalog->alive = $request->alive;
+        if($request->plant_id == null){
+            $datalog->plant_id = 1;
+        }else {
+            $datalog->plant_id = $request->plant_id;
+        }
         $datalog->save();
         return response()->json(['msg' => 'Created', 'request' => response()->json($request), 'response'=> 201]);
     }

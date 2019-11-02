@@ -4,6 +4,13 @@
     <ol id="plant-list">
 
     </ol>
+    <ul class="actions special">
+        <li>
+            <a href="{{ route('plants.create') }}" class="button">
+                Create Plant
+            </a>
+        </li>
+    </ul>
 @endsection
 
 @section('script')

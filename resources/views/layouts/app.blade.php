@@ -47,37 +47,6 @@
                 @show
     </section>
 </div>
-    <!-- Scripts -->
-{{--    <script>--}}
-{{--        function getData(e){--}}
-
-{{--            document.getElementById('loading-img').style.display = "block";--}}
-{{--            document.getElementById('loading-txt').style.display = "none";--}}
-
-{{--            axios.get('api/range')--}}
-{{--                .then(function(response){--}}
-{{--                    document.getElementById("light-min").innerText = response.datalog.light[0];--}}
-{{--                    document.getElementById("light-max").innerText = response.datalog.light[1];--}}
-
-{{--                    document.getElementById("temperature-min").innerText = response.datalog.temperature[0];--}}
-{{--                    document.getElementById("temperature-max").innerText = response.datalog.temperature[1];--}}
-
-{{--                    document.getElementById("humidity-min").innerText = response.datalog.humidity[0];--}}
-{{--                    document.getElementById("humidity-max").innerText = response.datalog.humidity[1];--}}
-
-{{--                    document.getElementById("moisture-min").innerText = response.datalog.moisture[0];--}}
-{{--                    document.getElementById("moisture-max").innerText = response.datalog.moisture[1];--}}
-{{--                    console.log(response.datalog);--}}
-{{--                }).catch(function(error){--}}
-{{--                console.log(error);--}}
-{{--            }).finally(function(){--}}
-{{--                console.log("Done");--}}
-{{--                document.getElementById('loading-img').style.display = "none";--}}
-{{--                document.getElementById('loading-txt').style.display="block";--}}
-{{--            })--}}
-{{--        }--}}
-{{--        getData();--}}
-{{--    </script>--}}
     <script>
         if ('addEventListener' in window) {
             window.addEventListener('load', function () {
@@ -87,7 +56,7 @@
         }
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     @section('script')
         @show
 </body>

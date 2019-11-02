@@ -49,7 +49,23 @@
                             <span id="humidity-max">
                                 300
                             </span>
-                            &#8451;
+                            %
+                        </span>
+                </p>
+            </div>
+            <div class="field">
+                <p style="margin: 0 0 20px 20px;">
+                        <span style="float: left">
+                            Soil
+                        </span>
+                    <span style="float: right">
+                            <span id="soil-min">
+                                30
+                            </span>
+                            -
+                            <span id="soil-max">
+                                300
+                            </span>
                         </span>
                 </p>
             </div>
@@ -66,12 +82,10 @@
                             <span id="moisture-max">
                                 300
                             </span>
-                            &#8451;
                         </span>
                 </p>
             </div>
         </div>
-
         <ul class="actions special">
             <li>
                 <a href="#" class="button" onclick="getData()" id="retry-btn">
@@ -82,20 +96,14 @@
             </li>
         </ul>
     </form>
-
 @endsection
 <script>
-    function getData(e){
+    function getData(){
 
         document.getElementById('loading-img').style.display = "block";
         document.getElementById('loading-txt').style.display = "none";
 
-        axios.get('http://djangpi.herokuapp.com/api/range',
-            {
-                params:{
-                    url: location.protocol + '//' + location.host + '/api/plantlog/1'
-                }
-            })
+        axios.get('/api/datamine/1')
             .then(function(response){
                 document.getElementById("light-min").innerText = response.data.light[0];
                 document.getElementById("light-max").innerText = response.data.light[1];
@@ -105,6 +113,9 @@
 
                 document.getElementById("humidity-min").innerText = response.data.humidity[0];
                 document.getElementById("humidity-max").innerText = response.data.humidity[1];
+
+                document.getElementById("soil-min").innerText = response.data.soil[0];
+                document.getElementById("soil-max").innerText = response.data.soil[1];
 
                 document.getElementById("moisture-min").innerText = response.data.moisture[0];
                 document.getElementById("moisture-max").innerText = response.data.moisture[1];

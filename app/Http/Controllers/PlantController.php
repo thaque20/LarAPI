@@ -52,7 +52,7 @@ class PlantController extends Controller
         $plant->variety = $request->variety;
         $plant->description = $request->description;
         $plant->save();
-        return response()->json(['msg' => 'created', $plant]);
+        return redirect(route('plants.index'))->with(['msg' => 'created', 'response' => 201, 'request' => $plant]);
     }
 
     /**
@@ -116,6 +116,6 @@ class PlantController extends Controller
     public function destroy($id)
     {
         $plant = Plant::find($id)->delete();
-        return response()->json(null, 204);
+        return redirect(route('plants.index'))->with(['msg'=> 'Deleted', 'response'=> 204]);
     }
 }

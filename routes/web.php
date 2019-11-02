@@ -30,6 +30,11 @@ Route::group(['prefix' => 'plant', 'as' => 'plants.'], function(){
        $plantlog = Plant::find($id)->datalogs()->get();
         return view('plant.data', compact('plantlog'));
     })->name('log');
+    Route::view('/create', 'plant.create')->name('create');
+    Route::get('/edit/{id}', function($id){
+        $plant = Plant::find($id);
+        return view('plant.edit', compact('plant'));
+    })->name('edit');
 });
 
 Route::group(['prefix' => 'datalog', 'as' => 'datalogs.'], function(){

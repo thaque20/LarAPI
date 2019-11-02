@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('form')
-    <h2>Extra Stuff!</h2>
-    <form method="post" action="#">
+    <h2>Create new Plant!</h2>
+    <form method="post" action="{{ route('plant.store') }}">
         <div class="fields">
             <div class="field">
                 <input type="text" name="name" placeholder="Name" />
@@ -48,13 +48,10 @@
             <div class="field">
                 <textarea name="description" placeholder="Description" rows="4"></textarea>
             </div>
-            <div class="field">
-                <input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
-            </div>
 
         </div>
         <ul class="actions special">
-            <li><a href="#" class="button">Get Started</a></li>
+            <li><button type="submit" class="button">Get Started</button></li>
         </ul>
     </form>
     <hr />
