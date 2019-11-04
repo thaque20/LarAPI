@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('form')
     <h2>Create new Plant!</h2>
-    <form method="post" action="{{ route('plant.store') }}">
+    <form method="post" action="{{ route('plant.update', $plant->id) }}">
+        {{ csrf_field() }}
+        {{ method_field('PUT') }}
         <div class="fields">
             <div class="field">
                 <input type="text" name="name" value="{{ $plant['name'] }}" placeholder="Name" />
@@ -51,7 +53,7 @@
 
         </div>
         <ul class="actions special">
-            <li><button type="submit" class="button">Get Started</button></li>
+            <li><button type="submit" class="button">Update</button></li>
         </ul>
     </form>
     <hr />

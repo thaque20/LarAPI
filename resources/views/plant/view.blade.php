@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('form')
-    <h2>Plants!</h2>
+    <h2>Plant Texonomy!</h2>
     <div>
         @foreach($plant->toArray() as $key => $value)
             <div class="fields">
@@ -14,10 +14,8 @@
                         </span>
                     </p>
                 </div>
-
             </div>
             <br>
-
         @endforeach
     </div>
     <ul class="actions special">
@@ -25,7 +23,6 @@
             <button class="button">
                 <a  href="{{ route('plants.edit', $plant['id']) }}">
                     Edit Plant
-
                 </a>
             </button>
         </li>

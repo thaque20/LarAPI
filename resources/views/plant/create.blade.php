@@ -51,7 +51,7 @@
 
         </div>
         <ul class="actions special">
-            <li><button type="submit" class="button">Get Started</button></li>
+            <li><button type="submit" class="button">Create</button></li>
         </ul>
     </form>
     <hr />

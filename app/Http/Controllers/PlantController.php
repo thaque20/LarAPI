@@ -104,7 +104,7 @@ class PlantController extends Controller
         $plant->description = $request->description;
         $plant->save();
 
-        return response()->json(['msg' => 'updated', $plant]);
+        return redirect(route('plants.index'))->with(['msg' => 'updated', $plant, 'response' => 200]);
     }
 
     /**
